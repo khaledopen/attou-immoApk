@@ -4,14 +4,14 @@ const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-  const hashedPassword = await bcrypt.hash('Sory1234', 10);
+  const hashedPassword = await bcrypt.hash('Ben1234', 10);
 
   // 1. Création de l'Administrateur
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@attounest.com' },
+    where: { email: 'admin@gmail.com' },
     update: {},
     create: {
-      email: 'admin@attounest.com',
+      email: 'admin@gmail.com',
       motDePasse: hashedPassword,
       nom: 'Admin',
       prenom: 'Super',
