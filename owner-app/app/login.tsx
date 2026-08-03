@@ -127,8 +127,6 @@ const LoginScreen = () => {
       if (error.response) {
         if (error.response.data && typeof error.response.data === 'object' && error.response.data.message) {
           msg = error.response.data.message;
-        } else if (error.response.status === 404) {
-          msg = "Ce mail n'a pas de compte.";
         }
       } else if (error.message) {
         msg = error.message;

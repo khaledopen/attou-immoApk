@@ -5,7 +5,7 @@ let RNMapView: any = null;
 let RNMarker: any = null;
 let RNPolyline: any = null;
 
-// Chargement sécurisé de react-native-maps (évite le crash si Google Maps API n'est pas configuré)
+// Chargement sécurisé de react-native-maps
 if (Platform.OS !== 'web') {
   try {
     const Maps = require('react-native-maps');
@@ -28,8 +28,8 @@ class SafeMapView extends React.Component<any, { hasError: boolean }> {
     return { hasError: true };
   }
 
-  componentDidCatch(error: any, info: any) {
-    console.warn('[MapView] Erreur de rendu de la carte:', error?.message || error);
+  componentDidCatch(error: any) {
+    console.warn('[MapView] Erreur de rendu:', error?.message || error);
   }
 
   render() {
@@ -39,24 +39,20 @@ class SafeMapView extends React.Component<any, { hasError: boolean }> {
           <Text style={fallbackStyles.icon}>🗺️</Text>
           <Text style={fallbackStyles.title}>Carte indisponible</Text>
           <Text style={fallbackStyles.subtitle}>
-            La carte native nécessite une clé Google Maps API.{'\n'}
-            Les propriétés sont visibles dans l'onglet Accueil.
+            Veuillez redémarrer l'application.
           </Text>
         </View>
       );
     }
-
     return <RNMapView {...this.props} />;
   }
 }
 
-// Composant Marker sécurisé
 const SafeMarker = (props: any) => {
   if (!RNMarker) return null;
   return <RNMarker {...props} />;
 };
 
-// Composant Polyline sécurisé
 const SafePolyline = (props: any) => {
   if (!RNPolyline) return null;
   return <RNPolyline {...props} />;
@@ -70,22 +66,9 @@ const fallbackStyles = StyleSheet.create({
     backgroundColor: '#f0f9ff',
     padding: 30,
   },
-  icon: {
-    fontSize: 60,
-    marginBottom: 16,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#0f172a',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: '#64748b',
-    textAlign: 'center',
-    lineHeight: 22,
-  },
+  icon: { fontSize: 60, marginBottom: 16 },
+  title: { fontSize: 20, fontWeight: '700', color: '#0f172a', marginBottom: 10 },
+  subtitle: { fontSize: 14, color: '#64748b', textAlign: 'center', lineHeight: 22 },
 });
 
 export const MapView = SafeMapView;

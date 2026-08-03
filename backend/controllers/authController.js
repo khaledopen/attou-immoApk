@@ -64,7 +64,7 @@ exports.login = async (req, res) => {
 
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) {
-      return res.status(404).json({ message: "Ce mail n'a pas de compte." });
+      return res.status(401).json({ message: 'Identifiants incorrects.' });
     }
 
     if (user.statut === 'SUSPENDU') {
@@ -73,7 +73,7 @@ exports.login = async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.motDePasse);
     if (!isMatch) {
-      return res.status(400).json({ message: 'Mot de passe incorrect.' });
+      return res.status(401).json({ message: 'Identifiants incorrects.' });
     }
 
     const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, {
