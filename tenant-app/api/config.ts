@@ -49,8 +49,8 @@ const USE_TUNNEL = process.env.EXPO_PUBLIC_USE_TUNNEL !== undefined
 
 const TUNNEL_URL = process.env.EXPO_PUBLIC_TUNNEL_URL || process.env.TUNNEL_URL || RENDER_PROD_URL;
 
-export const BASE_URL = USE_TUNNEL ? `${TUNNEL_URL}/api` : `http://${backendIP}:5000/api`;
-export const SOCKET_URL = USE_TUNNEL ? TUNNEL_URL : `http://${backendIP}:5000`;
+export const BASE_URL = USE_TUNNEL ? `${TUNNEL_URL}/api` : `${RENDER_PROD_URL}/api`;
+export const SOCKET_URL = USE_TUNNEL ? TUNNEL_URL : `${RENDER_PROD_URL}:5000`;
 
 // ✅ URL de callback Google (mise à jour dynamique selon le tunnel)
-export const GOOGLE_CALLBACK_URL = `${USE_TUNNEL ? TUNNEL_URL : `http://${backendIP}:5000`}/api/auth/google/callback`;
+export const GOOGLE_CALLBACK_URL = `${USE_TUNNEL ? TUNNEL_URL : `${RENDER_PROD_URL}`}/api/auth/google/callback`;
