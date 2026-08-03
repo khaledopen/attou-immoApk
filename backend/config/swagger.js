@@ -13,6 +13,10 @@ const options = {
     },
     servers: [
       {
+        url: 'https://projet-attou-immo.onrender.com',
+        description: 'Serveur de Production (Render)',
+      },
+      {
         url: 'http://localhost:5000',
         description: 'Serveur de développement local',
       },

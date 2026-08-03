@@ -42,11 +42,11 @@ if (__DEV__) {
 
 const RENDER_PROD_URL = 'https://projet-attou-immo.onrender.com';
 
-
-
 export const BASE_URL = `${RENDER_PROD_URL}/api`;
 export const SOCKET_URL = RENDER_PROD_URL;
 
-// ✅ URL de callback Google (mise à jour dynamique selon le tunnel)
+// ✅ URL de callback Google pour la production
 export const GOOGLE_CALLBACK_URL = `${RENDER_PROD_URL}/api/auth/google/callback`;
+
+
 

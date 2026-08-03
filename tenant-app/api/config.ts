@@ -42,15 +42,8 @@ if (__DEV__) {
 
 const RENDER_PROD_URL = 'https://projet-attou-immo.onrender.com';
 
-// Activez le tunnel via la variable d'environnement USE_TUNNEL (true par défaut en build autonome)
-const USE_TUNNEL = process.env.EXPO_PUBLIC_USE_TUNNEL !== undefined 
-  ? process.env.EXPO_PUBLIC_USE_TUNNEL === 'true' 
-  : true;
+export const BASE_URL = `${RENDER_PROD_URL}/api`;
+export const SOCKET_URL = RENDER_PROD_URL;
 
-const TUNNEL_URL = process.env.EXPO_PUBLIC_TUNNEL_URL || process.env.TUNNEL_URL || RENDER_PROD_URL;
-
-export const BASE_URL = USE_TUNNEL ? `${TUNNEL_URL}/api` : `${RENDER_PROD_URL}/api`;
-export const SOCKET_URL = USE_TUNNEL ? TUNNEL_URL : `${RENDER_PROD_URL}:5000`;
-
-// ✅ URL de callback Google (mise à jour dynamique selon le tunnel)
-export const GOOGLE_CALLBACK_URL = `${USE_TUNNEL ? TUNNEL_URL : `${RENDER_PROD_URL}`}/api/auth/google/callback`;
+// ✅ URL de callback Google pour la production
+export const GOOGLE_CALLBACK_URL = `${RENDER_PROD_URL}/api/auth/google/callback`;
