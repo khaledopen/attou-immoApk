@@ -29,7 +29,13 @@ const sendResetEmail = async (toEmail, resetUrl) => {
         },
         tls: {
           rejectUnauthorized: false
-        }
+        },
+        // ✅ Forcer IPv4 — Render ne supporte pas IPv6 sortant
+        // Sans cela, smtp.gmail.com résout en IPv6 et provoque ENETUNREACH
+        family: 4,
+        connectionTimeout: 10000,
+        greetingTimeout: 10000,
+        socketTimeout: 15000,
       });
 
       // Vérifier la connexion SMTP avant d'envoyer
