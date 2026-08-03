@@ -7,8 +7,6 @@ const api = axios.create({
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
-    'bypass-tunnel-reminder': 'true',
-    'ngrok-skip-browser-warning': 'true',
   },
 });
 
@@ -39,12 +37,7 @@ api.interceptors.response.use(
         const refreshToken = await AsyncStorage.getItem('refreshToken');
         if (refreshToken) {
           console.log('[Axios Refresh] Access token expiré. Rafraîchissement...');
-          const res = await axios.post(`${BASE_URL}/auth/refresh`, { refreshToken }, {
-            headers: {
-              'bypass-tunnel-reminder': 'true',
-              'ngrok-skip-browser-warning': 'true',
-            }
-          });
+          const res = await axios.post(`${BASE_URL}/auth/refresh`, { refreshToken });
           
           const { token: newAccessToken, refreshToken: newRefreshToken } = res.data;
           

@@ -4,10 +4,10 @@ const nodemailer = require('nodemailer');
  * Envoie un e-mail de réinitialisation de mot de passe.
  * - Si SMTP_HOST + SMTP_USER sont définis dans .env → e-mail réel
  * - Sinon → simulation Ethereal (lien visible dans le terminal)
- * Dans tous les cas, le lien est affiché dans le terminal pour faciliter le dev.
+ * Retourne true si l'envoi a réussi, false sinon.
  */
 const sendResetEmail = async (toEmail, resetUrl) => {
-  // ─── Toujours afficher le lien dans le terminal (utile en dev) ───
+  // ─── Toujours afficher le lien dans le terminal (utile en dev & debug prod) ───
   console.log('\n╔═══════════════════════════════════════════════════════╗');
   console.log('║          🔑 LIEN DE RÉINITIALISATION DU MOT DE PASSE          ║');
   console.log('╠═══════════════════════════════════════════════════════╣');
@@ -17,6 +17,7 @@ const sendResetEmail = async (toEmail, resetUrl) => {
 
   // ─── Envoi d'e-mail réel si SMTP configuré ───
   if (process.env.SMTP_HOST && process.env.SMTP_USER) {
+    console.log(`[Mailer] Configuration SMTP détectée: host=${process.env.SMTP_HOST}, user=${process.env.SMTP_USER}, port=${process.env.SMTP_PORT || '587'}`);
     try {
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
@@ -30,6 +31,10 @@ const sendResetEmail = async (toEmail, resetUrl) => {
           rejectUnauthorized: false
         }
       });
+
+      // Vérifier la connexion SMTP avant d'envoyer
+      await transporter.verify();
+      console.log('[Mailer] ✅ Connexion SMTP vérifiée avec succès.');
 
       await transporter.sendMail({
         from: `"AttouHome Support" <${process.env.SMTP_USER}>`,
@@ -49,7 +54,7 @@ const sendResetEmail = async (toEmail, resetUrl) => {
                   Réinitialiser mon mot de passe
                 </a>
               </div>
-              <p style="color:#94a3b8;font-size:13px;">⏰ Ce lien expire dans <strong>1 heure</strong>.</p>
+              <p style="color:#94a3b8;font-size:13px;">⏰ Ce lien expire dans <strong>30 minutes</strong>.</p>
               <p style="color:#94a3b8;font-size:13px;">Si vous n'avez pas fait cette demande, ignorez cet e-mail.</p>
             </div>
             <p style="color:#cbd5e1;font-size:12px;text-align:center;margin-top:20px;">© 2026 AttouHome · Tous droits réservés</p>
@@ -57,14 +62,19 @@ const sendResetEmail = async (toEmail, resetUrl) => {
         `
       });
       console.log(`[Mailer] ✅ E-mail envoyé avec succès à ${toEmail}`);
+      return true;
     } catch (err) {
       console.error(`[Mailer] ❌ Échec envoi SMTP: ${err.message}`);
-      console.log('[Mailer] ➡️  Utilisez le lien affiché ci-dessus dans votre terminal.');
+      console.error(`[Mailer] ❌ Détails:`, err.code, err.command, err.responseCode);
+      // Ne pas laisser l'erreur SMTP bloquer la réponse de l'API
+      // L'utilisateur recevra quand même un message de succès (sécurité)
+      return false;
     }
-    return;
   }
 
   // ─── Fallback : Ethereal Email (mode dev sans SMTP) ───
+  console.log('[Mailer] ⚠️ Aucune configuration SMTP trouvée (SMTP_HOST/SMTP_USER manquants).');
+  console.log('[Mailer] ➡️  Ajoutez SMTP_HOST, SMTP_USER, SMTP_PASS dans les variables d\'environnement Render.');
   try {
     const testAccount = await nodemailer.createTestAccount();
     const testTransporter = nodemailer.createTransport({
@@ -83,8 +93,10 @@ const sendResetEmail = async (toEmail, resetUrl) => {
 
     const previewUrl = nodemailer.getTestMessageUrl(info);
     console.log(`[Mailer] 📬 Aperçu Ethereal (boîte de simulation) : ${previewUrl}\n`);
+    return true;
   } catch (etherealErr) {
     console.log(`[Mailer] ℹ️  Ethereal indisponible. Utilisez le lien affiché ci-dessus directement.\n`);
+    return false;
   }
 };
 
