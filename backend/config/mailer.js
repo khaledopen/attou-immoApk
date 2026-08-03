@@ -1,4 +1,10 @@
 const nodemailer = require('nodemailer');
+const dns = require('dns');
+
+// Forcer la résolution DNS en IPv4 pour éviter l'erreur ENETUNREACH sur Render / environnements sans IPv6
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder('ipv4first');
+}
 
 /**
  * Envoie un e-mail de réinitialisation de mot de passe.
@@ -30,9 +36,12 @@ const sendResetEmail = async (toEmail, resetUrl) => {
         tls: {
           rejectUnauthorized: false
         },
-        // ✅ Forcer IPv4 — Render ne supporte pas IPv6 sortant
-        // Sans cela, smtp.gmail.com résout en IPv6 et provoque ENETUNREACH
+        // ✅ Forcer IPv4 — Render et de nombreux serveurs n'ont pas d'accès IPv6 sortant
+        // Sans cela, smtp.gmail.com résout en IPv6 (2a00:1450:...) et provoque ENETUNREACH
         family: 4,
+        lookup: (hostname, options, callback) => {
+          dns.lookup(hostname, { family: 4 }, callback);
+        },
         connectionTimeout: 10000,
         greetingTimeout: 10000,
         socketTimeout: 15000,
