@@ -277,9 +277,14 @@ exports.forgotPassword = async (req, res) => {
       { expiresIn: '30m' }
     );
 
-    const protocol = req.headers['x-forwarded-proto'] || 'http';
-    const host = req.headers.host;
-    const resetUrl = `${protocol}://${host}/api/auth/reset-password?token=${token}&userId=${user.id}`;
+    // Construire l'URL de réinitialisation
+    // On utilise FRONTEND_URL si défini (ex: https://projet-attou-immo.onrender.com)
+    // sinon on reconstruit depuis les headers HTTP (utile en dev local)
+    const baseUrl = process.env.FRONTEND_URL
+      ? process.env.FRONTEND_URL
+      : `${req.headers['x-forwarded-proto'] || req.protocol || 'http'}://${req.headers.host}`;
+    const resetUrl = `${baseUrl}/api/auth/reset-password?token=${token}&userId=${user.id}`;
+
 
     await sendResetEmail(user.email, resetUrl);
 

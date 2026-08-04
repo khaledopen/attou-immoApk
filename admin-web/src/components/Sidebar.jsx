@@ -38,18 +38,18 @@ const Sidebar = ({ onLogout, user, isOpen, onClose }) => {
 
   // Rafraîchir le compteur quand l'admin navigue vers la page Modération
   useEffect(() => {
-    if (location.pathname === '/moderation') {
+    if (location.pathname === '/admin/moderation') {
       fetchModerationCount();
     }
   }, [location.pathname]);
 
   const menuItems = [
-    { icon: LayoutDashboard, label: 'Tableau de bord', path: '/' },
-    { icon: Home, label: 'Catalogue Biens', path: '/properties' },
-    { icon: Users, label: 'Utilisateurs', path: '/users' },
-    { icon: Calendar, label: 'Visites & RDV', path: '/visits' },
-    { icon: Shield, label: 'Modération', path: '/moderation', badge: moderationCount },
-    { icon: Settings, label: 'Paramètres', path: '/settings' },
+    { icon: LayoutDashboard, label: 'Tableau de bord', path: '/admin/dashboard' },
+    { icon: Home, label: 'Catalogue Biens', path: '/admin/properties' },
+    { icon: Users, label: 'Utilisateurs', path: '/admin/users' },
+    { icon: Calendar, label: 'Visites & RDV', path: '/admin/visits' },
+    { icon: Shield, label: 'Modération', path: '/admin/moderation', badge: moderationCount },
+    { icon: Settings, label: 'Paramètres', path: '/admin/settings' },
   ];
 
   return (
@@ -93,7 +93,7 @@ const Sidebar = ({ onLogout, user, isOpen, onClose }) => {
           <p className="text-[11px] font-black uppercase tracking-wider text-slate-400 px-4 mb-4">Menu Principal</p>
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = location.pathname === item.path;
+            const isActive = location.pathname === item.path || location.pathname.startsWith(item.path + '/');
             const hasBadge = item.badge && item.badge > 0;
             return (
               <Link
