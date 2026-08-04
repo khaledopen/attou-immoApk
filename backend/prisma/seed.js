@@ -37,45 +37,49 @@ async function main() {
     },
   });
 
-  // 3. Création d'une Adresse
-  const adresse = await prisma.adresse.create({
-    data: {
-      rue: 'Boulevard de France',
-      ville: 'Abidjan',
-      codePostal: '00225',
-      pays: "Côte d'Ivoire",
-      latitude: 5.3484,
-      longitude: -3.9733,
-    }
+  // 3. Création d'une Annonce de démonstration (uniquement si aucune annonce n'existe)
+  const existingAnnonce = await prisma.annonce.findFirst({
+    where: { titre: 'Magnifique F4 à la Riviera 3' }
   });
 
-  // 4. Création d'un Bien
-  const bien = await prisma.bien.create({
-    data: {
-      typeBien: 'APPARTEMENT',
-      surface: 120.5,
-      etage: 2,
-      nombreChambres: 3,
-      equipements: ['Wifi', 'Climatisation', 'Parking Sécurisé'],
-      anneeConstruction: 2022,
-      adresseId: adresse.id,
-    }
-  });
+  if (!existingAnnonce) {
+    const adresse = await prisma.adresse.create({
+      data: {
+        rue: 'Boulevard de France',
+        ville: 'Abidjan',
+        codePostal: '00225',
+        pays: "Côte d'Ivoire",
+        latitude: 5.3484,
+        longitude: -3.9733,
+      }
+    });
 
-  // 5. Création d'une Annonce pour ce bien
-  await prisma.annonce.create({
-    data: {
-      titre: 'Magnifique F4 à la Riviera 3',
-      description: 'Superbe appartement spacieux avec vue dégagée, idéal pour famille.',
-      prix: 750000,
-      surface: 120.5,
-      nombrePieces: 4,
-      typeBien: 'APPARTEMENT',
-      statut: 'PUBLIEE',
-      proprietaireId: proprietaire.id,
-      bienId: bien.id,
-    }
-  });
+    const bien = await prisma.bien.create({
+      data: {
+        typeBien: 'APPARTEMENT',
+        surface: 120.5,
+        etage: 2,
+        nombreChambres: 3,
+        equipements: ['Wifi', 'Climatisation', 'Parking Sécurisé'],
+        anneeConstruction: 2022,
+        adresseId: adresse.id,
+      }
+    });
+
+    await prisma.annonce.create({
+      data: {
+        titre: 'Magnifique F4 à la Riviera 3',
+        description: 'Superbe appartement spacieux avec vue dégagée, idéal pour famille.',
+        prix: 750000,
+        surface: 120.5,
+        nombrePieces: 4,
+        typeBien: 'APPARTEMENT',
+        statut: 'PUBLIEE',
+        proprietaireId: proprietaire.id,
+        bienId: bien.id,
+      }
+    });
+  }
 
   console.log('✅ Base de données réinitialisée avec succès !');
   console.log('Admin: admin@attounest.com / Sory1234');
