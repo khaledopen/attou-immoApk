@@ -23,6 +23,10 @@ import Users from './pages/Users';
 import Visits from './pages/Visits';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
+import { BASE_URL } from './api/config';
+
+// Définir l'URL de base globale d'axios vers le serveur de production Render
+axios.defaults.baseURL = BASE_URL;
 
 // Configurer l'intercepteur de requête pour injecter le token JWT
 axios.interceptors.request.use(
