@@ -1,26 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a; /* Navy Blue matching mobile app */
-  --color-primary-950: #172554;
-  
-  --color-accent-gold: #D4AF37;
+  /* Brand blue, extrait d'immoplus.ci */
+  --color-primary-50:  #ECF4FE;
+  --color-primary-100: #EBF2FD;
+  --color-primary-200: #C7DEFB;
+  --color-primary-300: #93C0F7;
+  --color-primary-400: #4A97F0;
+  --color-primary-500: #156EE4;
+  --color-primary-600: #1259C7;
+  --color-primary-700: #0E4A9E;
+  --color-primary-800: #0A1C3F; /* encre marine - fonds/texte sombres */
+  --color-primary-900: #071530;
+
+  --color-accent-amber: #F59E0B;
+  --color-accent-amber-soft: #FFF7ED;
+  --color-danger: #DC2626;
+  --color-surface-tint: #F4F7FB;
   --color-surface-50: #f8fafc;
   --color-surface-100: #f1f5f9;
 }
 
 :root {
-  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light;

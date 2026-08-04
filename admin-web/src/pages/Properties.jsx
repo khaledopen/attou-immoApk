@@ -8,8 +8,8 @@ const STATUS_OPTIONS = [
   { key: 'TOUS', label: 'Tous les statuts', icon: '📋', dotColor: '#64748b' },
   { key: 'PUBLIEE', label: 'Disponible', icon: '✅', dotColor: '#059669' },
   { key: 'ARCHIVEE', label: 'Loué', icon: '🔑', dotColor: '#d97706' },
-  { key: 'EN_ATTENTE', label: 'En attente', icon: '⏳', dotColor: '#2563eb' },
-  { key: 'SUSPENDUE', label: 'Signalé', icon: '🚩', dotColor: '#e11d48' },
+  { key: 'EN_ATTENTE', label: 'En attente', icon: '⏳', dotColor: '#1259C7' },
+  { key: 'SUSPENDUE', label: 'Signalé', icon: '🚩', dotColor: '#DC2626' },
 ];
 
 const Properties = () => {
@@ -121,8 +121,8 @@ const Properties = () => {
     const statuts = {
       PUBLIEE: { label: 'Disponible', color: '#059669', bg: '#ecfdf5' },
       ARCHIVEE: { label: 'Loué', color: '#d97706', bg: '#fffbeb' },
-      EN_ATTENTE: { label: 'En attente', color: '#2563eb', bg: '#eff6ff' },
-      SUSPENDUE: { label: 'Signalé', color: '#e11d48', bg: '#fff1f2' },
+      EN_ATTENTE: { label: 'En attente', color: '#1259C7', bg: '#ECF4FE' },
+      SUSPENDUE: { label: 'Signalé', color: '#DC2626', bg: '#fff1f2' },
       REJETEE: { label: 'Rejeté', color: '#6b7280', bg: '#f9fafb' },
     };
     return statuts[statut] || { label: statut, color: '#64748b', bg: '#f8fafc' };
@@ -141,7 +141,7 @@ const Properties = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
         <div>
           <h2 className="text-4xl font-black text-slate-900 mb-2">Catalogue Immobilier</h2>
-          <p className="text-slate-500 font-medium">Gerez et modérez les annonces publiées sur AttouNest.</p>
+          <p className="text-slate-500 font-medium">Gerez et modérez les annonces publiées sur AttouHome.</p>
         </div>
         <div className="bg-primary-100 text-primary-700 px-6 py-2 rounded-full font-black text-sm uppercase tracking-wider">
           {filteredProperties.length} biens trouvés
@@ -174,8 +174,8 @@ const Properties = () => {
               boxSizing: 'border-box',
             }}
             onFocus={e => {
-              e.target.style.borderColor = '#3b82f6';
-              e.target.style.boxShadow = '0 0 0 3px rgba(59,130,246,0.1)';
+              e.target.style.borderColor = '#156EE4';
+              e.target.style.boxShadow = '0 0 0 3px rgba(21,110,228,0.1)';
             }}
             onBlur={e => {
               e.target.style.borderColor = '#e2e8f0';
@@ -198,7 +198,7 @@ const Properties = () => {
               height: '100%',
               padding: '14px 18px',
               backgroundColor: '#ffffff',
-              border: dropdownOpen ? '1.5px solid #3b82f6' : '1.5px solid #e2e8f0',
+              border: dropdownOpen ? '1.5px solid #156EE4' : '1.5px solid #e2e8f0',
               borderRadius: '16px',
               cursor: 'pointer',
               fontSize: '15px',
@@ -206,7 +206,7 @@ const Properties = () => {
               color: '#1e293b',
               outline: 'none',
               transition: 'all 0.2s ease',
-              boxShadow: dropdownOpen ? '0 0 0 3px rgba(59,130,246,0.1)' : '0 1px 3px rgba(0,0,0,0.04)',
+              boxShadow: dropdownOpen ? '0 0 0 3px rgba(21,110,228,0.1)' : '0 1px 3px rgba(0,0,0,0.04)',
               boxSizing: 'border-box',
             }}
           >
@@ -293,7 +293,7 @@ const Properties = () => {
                         {count}
                       </span>
                       {isSelected && (
-                        <span style={{ color: '#3b82f6', fontSize: '16px', flexShrink: 0 }}>✓</span>
+                        <span style={{ color: '#156EE4', fontSize: '16px', flexShrink: 0 }}>✓</span>
                       )}
                     </button>
                   );
@@ -317,7 +317,7 @@ const Properties = () => {
       `}</style>
 
       {filteredProperties.length === 0 ? (
-        <div className="text-center p-20 bg-white rounded-3xl border border-slate-100 shadow-sm">
+        <div className="text-center p-20 bg-white rounded-2xl border border-slate-100 shadow-sm">
           <p className="text-slate-400 font-bold text-lg">Aucun bien ne correspond à votre recherche.</p>
         </div>
       ) : (
@@ -486,7 +486,7 @@ const Properties = () => {
                     style={{
                       width: '72px', height: '72px', borderRadius: '12px',
                       objectFit: 'cover', cursor: 'pointer', flexShrink: 0,
-                      border: currentPhotoIndex === index ? '3px solid #3b82f6' : '3px solid transparent',
+                      border: currentPhotoIndex === index ? '3px solid #156EE4' : '3px solid transparent',
                       opacity: currentPhotoIndex === index ? 1 : 0.6,
                       transition: 'all 0.2s ease',
                     }}
@@ -502,11 +502,11 @@ const Properties = () => {
               {/* Prix */}
               <div style={{ 
                 marginBottom: '28px', padding: '20px', borderRadius: '16px',
-                background: 'linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%)', 
-                border: '1px solid #dbeafe',
+                backgroundColor: '#ECF4FE',
+                border: '1px solid #C7DEFB',
               }}>
                 <p style={{ color: '#64748b', fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Loyer mensuel</p>
-                <p style={{ color: '#1e40af', fontSize: '32px', fontWeight: 900, lineHeight: 1 }}>
+                <p style={{ color: '#0A1C3F', fontSize: '32px', fontWeight: 900, lineHeight: 1 }}>
                   {selectedProperty.prix?.toLocaleString()} <span style={{ fontSize: '16px' }}>FCFA</span>
                 </p>
               </div>
@@ -550,8 +550,8 @@ const Properties = () => {
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     {selectedProperty.bien.equipements.map((eq, idx) => (
                       <span key={idx} style={{
-                        padding: '6px 14px', backgroundColor: '#eff6ff', color: '#2563eb',
-                        borderRadius: '20px', fontSize: '12px', fontWeight: 600, border: '1px solid #dbeafe',
+                        padding: '6px 14px', backgroundColor: '#ECF4FE', color: '#1259C7',
+                        borderRadius: '20px', fontSize: '12px', fontWeight: 600, border: '1px solid #EBF2FD',
                       }}>
                         {eq}
                       </span>
@@ -569,9 +569,9 @@ const Properties = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                   <div style={{
                     width: '44px', height: '44px', borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #dbeafe, #eff6ff)',
+                    backgroundColor: '#EBF2FD',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: '#2563eb', fontWeight: 800, fontSize: '16px',
+                    color: '#1259C7', fontWeight: 800, fontSize: '16px',
                     border: '2px solid #fff', boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
                   }}>
                     {selectedProperty.proprietaire?.prenom?.charAt(0) || 'P'}
@@ -608,7 +608,7 @@ const Properties = () => {
                 <div style={{ marginBottom: '28px' }}>
                   <h4 style={{ color: '#1e293b', fontWeight: 800, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '12px' }}>Adresse</h4>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', backgroundColor: '#f8fafc', padding: '16px 20px', borderRadius: '16px', border: '1px solid #f1f5f9' }}>
-                    <MapPin size={18} color="#3b82f6" />
+                    <MapPin size={18} color="#156EE4" />
                     <div>
                       <p style={{ color: '#1e293b', fontWeight: 600, fontSize: '14px' }}>
                         {selectedProperty.bien.adresse.rue}, {selectedProperty.bien.adresse.ville}

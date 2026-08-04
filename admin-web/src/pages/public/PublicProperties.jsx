@@ -93,7 +93,7 @@ const PublicProperties = () => {
         transition={{ duration: 0.5 }}
         className="space-y-2"
       >
-        <span className="text-xs font-bold text-sky-600 uppercase tracking-widest">Recherche & Catalogue</span>
+        <span className="text-xs font-bold text-primary-600 uppercase tracking-widest">Recherche & Catalogue</span>
         <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
           Tous les Biens Immobiliers Vérifiés
         </h1>
@@ -103,7 +103,7 @@ const PublicProperties = () => {
       </motion.div>
 
       {/* BARRE DE FILTRES ET TRI */}
-      <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           
           {/* Recherche par mot-clé / ville */}
@@ -114,7 +114,7 @@ const PublicProperties = () => {
               placeholder="Commune, quartier, titre..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all"
             />
           </div>
 
@@ -124,7 +124,7 @@ const PublicProperties = () => {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all text-slate-700 cursor-pointer"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-slate-700 cursor-pointer"
             >
               <option value="">Tous les types</option>
               <option value="APPARTEMENT">Appartements</option>
@@ -141,7 +141,7 @@ const PublicProperties = () => {
             <select
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all text-slate-700 cursor-pointer"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-slate-700 cursor-pointer"
             >
               <option value="">Budget Maximum</option>
               <option value="150000">Jusqu'à 150 000 FCFA</option>
@@ -157,7 +157,7 @@ const PublicProperties = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all text-slate-700 cursor-pointer"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-slate-700 cursor-pointer"
             >
               <option value="recent">Plus récents</option>
               <option value="price-asc">Prix : croissant</option>
@@ -175,7 +175,7 @@ const PublicProperties = () => {
           {(searchQuery || selectedType || maxPrice || sortBy !== 'recent') && (
             <button
               onClick={handleResetFilters}
-              className="flex items-center gap-1 font-bold text-rose-600 hover:text-rose-700 transition-colors cursor-pointer"
+              className="flex items-center gap-1 font-bold text-red-600 hover:text-red-700 transition-colors cursor-pointer"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               Effacer les filtres
@@ -188,14 +188,14 @@ const PublicProperties = () => {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[1, 2, 3, 4, 5, 6].map((n) => (
-            <div key={n} className="bg-slate-100 h-80 rounded-3xl animate-pulse" />
+            <div key={n} className="bg-slate-100 h-80 rounded-2xl animate-pulse" />
           ))}
         </div>
       ) : filteredProperties.length === 0 ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-white rounded-3xl p-16 text-center border border-slate-200/80 shadow-xs max-w-lg mx-auto space-y-4"
+          className="bg-white rounded-2xl p-16 text-center border border-slate-200/80 shadow-xs max-w-lg mx-auto space-y-4"
         >
           <Building2 className="w-16 h-16 text-slate-300 mx-auto" />
           <h3 className="text-xl font-bold text-slate-900">Aucun résultat trouvé</h3>
@@ -204,7 +204,7 @@ const PublicProperties = () => {
           </p>
           <button
             onClick={handleResetFilters}
-            className="bg-sky-600 text-white font-bold px-6 py-2.5 rounded-full text-xs hover:bg-sky-700 transition-colors cursor-pointer"
+            className="bg-primary-500 text-white font-bold px-6 py-2.5 rounded-full text-xs hover:bg-primary-600 transition-colors cursor-pointer"
           >
             Réinitialiser les filtres
           </button>

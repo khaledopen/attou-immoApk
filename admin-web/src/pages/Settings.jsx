@@ -11,7 +11,7 @@ const SettingsPage = () => {
   const [profile, setProfile] = useState({
     nom: 'Administrateur',
     prenom: 'Principal',
-    email: 'admin@attounest.com',
+    email: 'admin@attouhome.ci',
     telephone: '',
   });
 
@@ -115,7 +115,7 @@ const SettingsPage = () => {
             })}
           </div>
 
-          <div className="mt-6 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-6 text-white shadow-lg">
+          <div className="mt-6 bg-primary-800 rounded-2xl p-6 text-white shadow-lg">
             <Shield size={28} className="mb-3 opacity-80" />
             <h4 className="font-bold text-sm mb-1">Compte sécurisé</h4>
             <p className="text-primary-100 text-xs leading-relaxed">
@@ -130,12 +130,12 @@ const SettingsPage = () => {
           {activeTab === 'profile' && (
             <div className="bg-white rounded-[2rem] border border-slate-100 shadow-sm p-10">
               <div className="flex items-center gap-5 mb-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-primary-500/30">
+                <div className="w-20 h-20 bg-primary-500 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-primary-500/30">
                   {profile.prenom[0]}{profile.nom[0]}
                 </div>
                 <div>
                   <h3 className="text-2xl font-black text-slate-900">{profile.prenom} {profile.nom}</h3>
-                  <p className="text-slate-400 font-medium">Administrateur • AttouNest</p>
+                  <p className="text-slate-400 font-medium">Administrateur • AttouHome</p>
                 </div>
               </div>
 
@@ -359,7 +359,7 @@ const SettingsPage = () => {
                       <p className="text-slate-800 font-bold">Photos par annonce</p>
                       <p className="text-slate-400 text-xs mt-0.5">Nombre maximum de photos autorisées pour chaque annonce.</p>
                     </div>
-                    <span className="text-2xl font-black text-blue-600">{businessRules.maxPhotosPerListing}</span>
+                    <span className="text-2xl font-black text-primary-600">{businessRules.maxPhotosPerListing}</span>
                   </div>
                   <input
                     type="range"
@@ -367,7 +367,7 @@ const SettingsPage = () => {
                     max="20"
                     value={businessRules.maxPhotosPerListing}
                     onChange={(e) => setBusinessRules({ ...businessRules, maxPhotosPerListing: parseInt(e.target.value) })}
-                    className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer accent-blue-600"
+                    className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer accent-primary-600"
                   />
                   <div className="flex justify-between text-[10px] font-bold text-slate-400 mt-1">
                     <span>1</span>

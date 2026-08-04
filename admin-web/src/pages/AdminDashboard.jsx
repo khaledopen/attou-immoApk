@@ -5,7 +5,7 @@ import { BASE_URL } from '../api/config';
 import { useNavigate } from 'react-router-dom';
 
 const StatCard = ({ icon: Icon, label, value, trend, color }) => (
-  <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-primary-100 transition-all duration-500 group">
+  <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-primary-100 transition-all duration-500 group">
     <div className="flex justify-between items-start mb-4">
       <div className={`p-3 rounded-2xl ${color} shadow-lg shadow-current/10`}>
         <Icon size={24} className="text-white" />
@@ -60,7 +60,7 @@ const PerformanceChart = ({ data, metric, label, colorHex, gradientId }) => {
   const yTicks = [0, 0.5, 1];
 
   return (
-    <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex-1">
+    <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex-1">
       <div className="flex justify-between items-center mb-4">
         <div>
           <h4 className="text-slate-400 text-sm font-semibold uppercase tracking-wider mb-1">{label}</h4>
@@ -225,7 +225,7 @@ const AdminDashboard = () => {
       <header className="mb-10 flex justify-between items-center">
         <div>
           <h2 className="text-4xl font-black text-slate-900 mb-2">Bonjour, Administrateur</h2>
-          <p className="text-slate-500 font-medium">Gérez votre parc immobilier AttouNest en toute sérénité.</p>
+          <p className="text-slate-500 font-medium">Gérez votre parc immobilier AttouHome en toute sérénité.</p>
         </div>
       </header>
 
@@ -242,22 +242,22 @@ const AdminDashboard = () => {
           icon={Home} 
           label="Biens en ligne" 
           value={stats.propertiesCount} 
-          trend={stats.todayPropertiesCount > 0 ? `+${stats.todayPropertiesCount} aujourd'hui` : 'Aucun bien publié aujourd\'hui'} 
-          color="bg-blue-600" 
+          trend={stats.todayPropertiesCount > 0 ? `+${stats.todayPropertiesCount} aujourd'hui` : 'Aucun bien publié aujourd\'hui'}
+          color="bg-primary-800"
         />
-        <StatCard 
-          icon={Calendar} 
-          label="Visites demandées" 
-          value={stats.visitsCount} 
-          trend={stats.todayVisitsCount > 0 ? `+${stats.todayVisitsCount} aujourd'hui` : 'Aucune visite aujourd\'hui'} 
-          color="bg-amber-500" 
+        <StatCard
+          icon={Calendar}
+          label="Visites demandées"
+          value={stats.visitsCount}
+          trend={stats.todayVisitsCount > 0 ? `+${stats.todayVisitsCount} aujourd'hui` : 'Aucune visite aujourd\'hui'}
+          color="bg-accent-amber"
         />
-        <StatCard 
-          icon={TrendingUp} 
-          label="Loyer mensuel global" 
-          value={`${stats.totalRent.toLocaleString()} FCFA`} 
-          trend={stats.totalRent > 0 ? '+100% total' : '0%'} 
-          color="bg-indigo-600" 
+        <StatCard
+          icon={TrendingUp}
+          label="Loyer mensuel global"
+          value={`${stats.totalRent.toLocaleString()} FCFA`}
+          trend={stats.totalRent > 0 ? '+100% total' : '0%'}
+          color="bg-emerald-600"
         />
       </div>
 
@@ -265,26 +265,26 @@ const AdminDashboard = () => {
       <div className="mb-10">
         <h3 className="text-xl font-extrabold text-slate-800 mb-5">Analyses de performance (7 derniers jours)</h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <PerformanceChart 
-            data={stats.dailyStats} 
-            metric="users" 
-            label="Nouveaux Inscrits" 
-            colorHex="#0ea5e9" 
-            gradientId="usersGrad" 
+          <PerformanceChart
+            data={stats.dailyStats}
+            metric="users"
+            label="Nouveaux Inscrits"
+            colorHex="#156EE4"
+            gradientId="usersGrad"
           />
-          <PerformanceChart 
-            data={stats.dailyStats} 
-            metric="properties" 
-            label="Annonces Actives" 
-            colorHex="#2563eb" 
-            gradientId="propsGrad" 
+          <PerformanceChart
+            data={stats.dailyStats}
+            metric="properties"
+            label="Annonces Actives"
+            colorHex="#0A1C3F"
+            gradientId="propsGrad"
           />
-          <PerformanceChart 
-            data={stats.dailyStats} 
-            metric="visits" 
-            label="Demandes du Jour" 
-            colorHex="#d97706" 
-            gradientId="visitsGrad" 
+          <PerformanceChart
+            data={stats.dailyStats}
+            metric="visits"
+            label="Demandes du Jour"
+            colorHex="#F59E0B"
+            gradientId="visitsGrad"
           />
         </div>
       </div>
@@ -329,7 +329,7 @@ const AdminDashboard = () => {
           <h3 className="text-xl font-bold text-slate-900 mb-8">Propriétaires partenaires</h3>
           <div className="space-y-6">
             <div className="flex gap-5 items-center">
-              <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold">
+              <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 font-bold">
                 {stats.proprietairesCount}
               </div>
               <div className="flex-1">

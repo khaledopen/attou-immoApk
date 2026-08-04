@@ -92,7 +92,7 @@ const App = () => {
         <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white border-b border-slate-100 flex items-center justify-between px-6 z-40 shadow-sm">
           <div className="flex items-center gap-3">
             <span className="text-xl font-black text-slate-900">
-              Attou<span className="text-sky-600 font-bold">Nest Admin</span>
+              Attou<span className="text-primary-600 font-bold">Home Admin</span>
             </span>
           </div>
           <button

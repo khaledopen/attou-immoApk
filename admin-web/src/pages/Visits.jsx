@@ -80,7 +80,7 @@ const VisitsPage = () => {
           ${visit.dateProposee ? new Date(visit.dateProposee).toLocaleDateString('fr-FR') : 'Non programmée'}
         </td>
         <td style="padding: 8px; border-bottom: 1px solid #ddd; font-weight: bold; color: ${
-          visit.statut === 'ACCEPTEE' ? '#10b981' : visit.statut === 'REFUSEE' ? '#ef4444' : '#f59e0b'
+          visit.statut === 'ACCEPTEE' ? '#059669' : visit.statut === 'REFUSEE' ? '#DC2626' : '#F59E0B'
         }">${visit.statut}</td>
       </tr>
     `).join('');
@@ -91,7 +91,7 @@ const VisitsPage = () => {
           <title>AttouHome - Liste des visites et RDV</title>
           <style>
             body { font-family: Arial, sans-serif; padding: 20px; color: #333; }
-            h2 { color: #0284c7; margin-bottom: 5px; }
+            h2 { color: #156EE4; margin-bottom: 5px; }
             p { margin-top: 0; color: #666; font-size: 14px; }
             table { width: 100%; border-collapse: collapse; margin-top: 20px; }
             th { background-color: #f8fafc; text-align: left; padding: 10px; font-weight: bold; border-bottom: 2px solid #ddd; }
@@ -208,7 +208,7 @@ const VisitsPage = () => {
                   <td className="px-8 py-6">
                     {visit.annonce?.proprietaire ? (
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg">
+                        <div className="w-12 h-12 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center font-bold text-lg">
                           {visit.annonce.proprietaire.prenom?.[0] || 'P'}
                         </div>
                         <div>
@@ -243,7 +243,7 @@ const VisitsPage = () => {
                       visit.statut === 'ACCEPTEE' 
                         ? 'bg-emerald-50 text-emerald-600'
                         : visit.statut === 'REFUSEE'
-                        ? 'bg-rose-50 text-rose-600'
+                        ? 'bg-red-50 text-red-600'
                         : 'bg-amber-50 text-amber-600'
                     }`}>
                       {visit.statut === 'ACCEPTEE' ? (

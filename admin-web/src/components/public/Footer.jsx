@@ -11,11 +11,11 @@ const Footer = () => {
           {/* Colonne 1 : Branding & Présentation */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-sky-600 flex items-center justify-center text-white font-bold">
+              <div className="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white font-bold">
                 <Building2 className="w-6 h-6" />
               </div>
               <span className="text-2xl font-black text-white tracking-tight">
-                Attou<span className="text-sky-500">Home</span>
+                Attou<span className="text-primary-500">Home</span>
               </span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
@@ -29,7 +29,7 @@ const Footer = () => {
 
           {/* Colonne 2 : Liens Rapides */}
           <div className="space-y-4">
-            <h3 className="text-white font-bold text-base tracking-wide uppercase text-xs text-sky-400">
+            <h3 className="text-white font-bold text-base tracking-wide uppercase text-xs text-primary-400">
               Navigation
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -63,20 +63,20 @@ const Footer = () => {
 
           {/* Colonne 3 : Contact */}
           <div className="space-y-4">
-            <h3 className="text-white font-bold text-base tracking-wide uppercase text-xs text-sky-400">
+            <h3 className="text-white font-bold text-base tracking-wide uppercase text-xs text-primary-400">
               Contact & Siège
             </h3>
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-sky-500 shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
                 <span>Abidjan, Côte d'Ivoire</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-sky-500 shrink-0" />
+                <Phone className="w-5 h-5 text-primary-500 shrink-0" />
                 <span>+225 07 12 29 64 41</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-sky-500 shrink-0" />
+                <Mail className="w-5 h-5 text-primary-500 shrink-0" />
                 <span>contact@attouhome.ci</span>
               </li>
             </ul>
@@ -84,7 +84,7 @@ const Footer = () => {
 
           {/* Colonne 4 : Mobile Apps */}
           <div className="space-y-4">
-            <h3 className="text-white font-bold text-base tracking-wide uppercase text-xs text-sky-400">
+            <h3 className="text-white font-bold text-base tracking-wide uppercase text-xs text-primary-400">
               Applications Mobile
             </h3>
             <p className="text-slate-400 text-sm">
@@ -92,7 +92,7 @@ const Footer = () => {
             </p>
             <div className="space-y-2">
               <div className="flex items-center gap-3 bg-slate-800/80 p-3 rounded-xl border border-slate-700/60">
-                <Smartphone className="w-6 h-6 text-sky-400" />
+                <Smartphone className="w-6 h-6 text-primary-400" />
                 <div>
                   <div className="text-xs font-bold text-white">AttouHome Locataire</div>
                   <div className="text-[11px] text-slate-400">Recherche & Visites</div>
@@ -116,7 +116,7 @@ const Footer = () => {
             © {new Date().getFullYear()} AttouHome. Tous droits réservés.
           </div>
           <div className="flex items-center gap-1 text-slate-400">
-            Conçu avec <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" /> pour l'immobilier en Côte d'Ivoire.
+            Conçu avec <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 inline" /> pour l'immobilier en Côte d'Ivoire.
           </div>
         </div>
       </div>

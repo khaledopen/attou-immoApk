@@ -95,7 +95,7 @@ const UsersPage = () => {
           <title>AttouHome - Liste des utilisateurs</title>
           <style>
             body { font-family: Arial, sans-serif; padding: 20px; color: #333; }
-            h2 { color: #0284c7; margin-bottom: 5px; }
+            h2 { color: #156EE4; margin-bottom: 5px; }
             p { margin-top: 0; color: #666; font-size: 14px; }
             table { width: 100%; border-collapse: collapse; margin-top: 20px; }
             th { background-color: #f8fafc; text-align: left; padding: 10px; font-weight: bold; border-bottom: 2px solid #ddd; }
@@ -207,10 +207,10 @@ const UsersPage = () => {
                   </td>
                   <td className="px-8 py-6">
                     <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
-                      user.role === 'ADMIN' 
-                        ? 'bg-rose-100 text-rose-700' 
+                      user.role === 'ADMIN'
+                        ? 'bg-red-100 text-red-700'
                         : user.role === 'PROPRIETAIRE'
-                        ? 'bg-indigo-100 text-indigo-700'
+                        ? 'bg-primary-100 text-primary-700'
                         : 'bg-emerald-100 text-emerald-700'
                     }`}>
                       {user.role}
@@ -228,7 +228,7 @@ const UsersPage = () => {
                   <td className="px-8 py-6 text-right">
                     <div className="flex items-center justify-end gap-4">
                       {user.statut === 'SUSPENDU' ? (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-600">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600">
                           <Shield size={14} />
                           Suspendu
                         </span>
@@ -245,7 +245,7 @@ const UsersPage = () => {
                           className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                             user.statut === 'SUSPENDU'
                               ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm'
-                              : 'bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-100'
+                              : 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-100'
                           }`}
                         >
                           {user.statut === 'SUSPENDU' ? 'Activer' : 'Suspendre'}

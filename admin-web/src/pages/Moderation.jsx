@@ -99,12 +99,12 @@ const Moderation = () => {
       <header className="mb-10 flex justify-between items-center">
         <div>
           <h2 className="text-4xl font-black text-slate-900 mb-2 flex items-center gap-4">
-            <Shield className="text-rose-600" size={40} />
+            <Shield className="text-red-600" size={40} />
             Signalements
           </h2>
           <p className="text-slate-500 font-medium">Modérez les annonces signalées par les utilisateurs pour contenu inapproprié.</p>
         </div>
-        <div className="bg-rose-100 text-rose-700 px-6 py-2 rounded-full font-black text-sm uppercase tracking-wider">
+        <div className="bg-red-100 text-red-700 px-6 py-2 rounded-full font-black text-sm uppercase tracking-wider">
           {pendingProperties.length} signalé(s)
         </div>
       </header>
@@ -139,8 +139,8 @@ const Moderation = () => {
                           {property.bien?.adresse?.ville || 'Côte d\'Ivoire'}, {property.bien?.adresse?.rue || ''}
                         </p>
                         {property.raisonSignalement && (
-                          <div className="mt-2 text-xs text-rose-600 bg-rose-50 border border-rose-100 rounded-lg px-2.5 py-1.5 inline-block font-semibold">
-                            <span className="font-bold text-rose-800">Motif :</span> {property.raisonSignalement}
+                          <div className="mt-2 text-xs text-red-600 bg-red-50 border border-red-100 rounded-lg px-2.5 py-1.5 inline-block font-semibold">
+                            <span className="font-bold text-red-800">Motif :</span> {property.raisonSignalement}
                           </div>
                         )}
                       </div>
@@ -174,7 +174,7 @@ const Moderation = () => {
                       {/* Bouton voir détails */}
                       <button 
                         onClick={() => setSelectedProperty(property)}
-                        className="p-3 text-blue-600 hover:bg-blue-50 rounded-xl transition-all shadow-sm border border-blue-100 cursor-pointer"
+                        className="p-3 text-primary-600 hover:bg-primary-50 rounded-xl transition-all shadow-sm border border-primary-100 cursor-pointer"
                         title="Voir les détails"
                       >
                         <Eye size={20} strokeWidth={2.5} />
@@ -188,7 +188,7 @@ const Moderation = () => {
                       </button>
                       <button 
                         onClick={() => handleReject(property.id)}
-                        className="p-3 text-rose-600 hover:bg-rose-50 rounded-xl transition-all shadow-sm border border-rose-100 cursor-pointer"
+                        className="p-3 text-red-600 hover:bg-red-50 rounded-xl transition-all shadow-sm border border-red-100 cursor-pointer"
                         title="Supprimer l'annonce"
                       >
                         <X size={20} strokeWidth={3} />
@@ -217,7 +217,7 @@ const Moderation = () => {
           onClick={() => setSelectedProperty(null)}
         >
           <div 
-            className="bg-white rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto mx-4"
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto mx-4"
             onClick={(e) => e.stopPropagation()}
             style={{ animation: 'modalSlideIn 0.3s ease-out' }}
           >
@@ -225,7 +225,7 @@ const Moderation = () => {
             <div className="relative">
               {/* Galerie photo */}
               {selectedProperty.photos?.length > 0 ? (
-                <div className="h-72 overflow-hidden rounded-t-3xl relative">
+                <div className="h-72 overflow-hidden rounded-t-2xl relative">
                   <img 
                     src={selectedProperty.photos[0].url} 
                     alt={selectedProperty.titre} 
@@ -257,7 +257,7 @@ const Moderation = () => {
                   </div>
                 </div>
               ) : (
-                <div className="h-48 bg-slate-100 rounded-t-3xl flex items-center justify-center">
+                <div className="h-48 bg-slate-100 rounded-t-2xl flex items-center justify-center">
                   <Home size={64} className="text-slate-300" />
                 </div>
               )}
@@ -281,7 +281,7 @@ const Moderation = () => {
                       key={photo.id || index}
                       src={photo.url} 
                       alt={`Photo ${index + 1}`}
-                      className="w-20 h-20 rounded-xl object-cover border-2 border-slate-100 flex-shrink-0 hover:border-blue-400 transition-colors cursor-pointer"
+                      className="w-20 h-20 rounded-xl object-cover border-2 border-slate-100 flex-shrink-0 hover:border-primary-400 transition-colors cursor-pointer"
                     />
                   ))}
                 </div>
@@ -289,12 +289,12 @@ const Moderation = () => {
 
               {/* Motif de signalement */}
               {selectedProperty.raisonSignalement && (
-                <div className="mb-8 p-5 bg-rose-50 border border-rose-200 rounded-2xl">
+                <div className="mb-8 p-5 bg-red-50 border border-red-200 rounded-2xl">
                   <div className="flex items-center gap-3 mb-2">
-                    <Shield size={20} className="text-rose-600" />
-                    <h4 className="text-rose-800 font-bold text-sm uppercase tracking-wide">Motif du signalement</h4>
+                    <Shield size={20} className="text-red-600" />
+                    <h4 className="text-red-800 font-bold text-sm uppercase tracking-wide">Motif du signalement</h4>
                   </div>
-                  <p className="text-rose-700 text-sm leading-relaxed">{selectedProperty.raisonSignalement}</p>
+                  <p className="text-red-700 text-sm leading-relaxed">{selectedProperty.raisonSignalement}</p>
                 </div>
               )}
 
@@ -340,7 +340,7 @@ const Moderation = () => {
                   <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider mb-3">Équipements</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProperty.bien.equipements.map((eq, idx) => (
-                      <span key={idx} className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold border border-blue-100">
+                      <span key={idx} className="px-3 py-1.5 bg-primary-50 text-primary-700 rounded-full text-xs font-semibold border border-primary-100">
                         {eq}
                       </span>
                     ))}
@@ -397,7 +397,7 @@ const Moderation = () => {
                 </button>
                 <button
                   onClick={() => handleReject(selectedProperty.id)}
-                  className="flex-1 flex items-center justify-center gap-3 py-4 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-2xl transition-all shadow-lg shadow-rose-200 cursor-pointer"
+                  className="flex-1 flex items-center justify-center gap-3 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-2xl transition-all shadow-lg shadow-red-200 cursor-pointer"
                 >
                   <X size={20} strokeWidth={3} />
                   Supprimer définitivement

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LayoutDashboard, Home, Users, Calendar, Settings, LogOut, Shield, ChevronRight, Sparkles, X } from 'lucide-react';
+import { LayoutDashboard, Home, Users, Calendar, Settings, LogOut, Shield, ChevronRight, Building2, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../api/config';
@@ -68,12 +68,12 @@ const Sidebar = ({ onLogout, user, isOpen, onClose }) => {
         {/* En-tête / Logo */}
         <div className="p-8 flex items-center justify-between border-b border-slate-50">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl flex items-center justify-center shadow-lg shadow-primary-500/30 ring-4 ring-primary-50">
-              <Sparkles className="text-white" size={24} />
+            <div className="w-12 h-12 bg-primary-500 rounded-2xl flex items-center justify-center shadow-lg shadow-primary-500/30">
+              <Building2 className="text-white" size={24} />
             </div>
             <div>
               <h1 className="text-2xl font-black tracking-tight text-slate-900">
-                Attou<span className="text-primary-600">Nest</span>
+                Attou<span className="text-primary-600">Home</span>
               </h1>
               <p className="text-[10px] font-extrabold uppercase tracking-widest text-primary-600/80">Portail d'administration</p>
             </div>
@@ -147,13 +147,13 @@ const Sidebar = ({ onLogout, user, isOpen, onClose }) => {
               <h4 className="text-slate-900 font-bold text-sm truncate">
                 {user ? `${user.prenom || ''} ${user.nom || ''}`.trim() || 'Admin Principal' : 'Admin Principal'}
               </h4>
-              <p className="text-slate-400 text-xs truncate">{user?.email || 'admin@attounest.com'}</p>
+              <p className="text-slate-400 text-xs truncate">{user?.email || 'admin@attouhome.ci'}</p>
             </div>
           </div>
 
           <button 
             onClick={onLogout}
-            className="flex items-center justify-center gap-3 px-5 py-4 w-full text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-2xl transition-all duration-300 font-bold border border-transparent hover:border-rose-100 shadow-sm hover:shadow cursor-pointer"
+            className="flex items-center justify-center gap-3 px-5 py-4 w-full text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-2xl transition-all duration-300 font-bold border border-transparent hover:border-red-100 shadow-sm hover:shadow cursor-pointer"
           >
             <LogOut size={20} />
             <span>Déconnexion</span>

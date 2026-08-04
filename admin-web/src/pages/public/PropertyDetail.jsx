@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import { 
-  MapPin, Bed, Maximize, CheckCircle2, Phone, User, Calendar, 
-  ShieldCheck, ArrowLeft, Smartphone, Building2, Share2, Sparkles, Check 
+import {
+  MapPin, Bed, Maximize, CheckCircle2, Phone,
+  ShieldCheck, ArrowLeft, Smartphone, Building2
 } from 'lucide-react';
 
 const API_URL = import.meta.env.VITE_API_URL || 'https://projet-attou-immo.onrender.com';
@@ -44,7 +44,7 @@ const PropertyDetail = () => {
   if (loading) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-32 text-center space-y-4">
-        <div className="w-12 h-12 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto" />
+        <div className="w-12 h-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto" />
         <p className="text-slate-500 font-semibold text-sm">Chargement des détails du bien en production...</p>
       </div>
     );
@@ -60,7 +60,7 @@ const PropertyDetail = () => {
         </p>
         <Link 
           to="/annonces" 
-          className="inline-flex items-center gap-2 bg-sky-600 text-white font-bold px-6 py-3 rounded-full text-xs uppercase tracking-wider shadow-md"
+          className="inline-flex items-center gap-2 bg-primary-500 text-white font-bold px-6 py-3 rounded-full text-xs uppercase tracking-wider shadow-md"
         >
           <ArrowLeft className="w-4 h-4" />
           Retour au catalogue
@@ -111,7 +111,7 @@ const PropertyDetail = () => {
         transition={{ duration: 0.6 }}
         className="space-y-4"
       >
-        <div className="h-[420px] sm:h-[500px] w-full bg-slate-950 rounded-3xl overflow-hidden shadow-2xl relative border border-slate-800">
+        <div className="h-[420px] sm:h-[500px] w-full bg-primary-900 rounded-2xl overflow-hidden shadow-xl relative">
           <img
             src={photoList[activePhotoIndex]?.url}
             alt={titre}
@@ -120,21 +120,21 @@ const PropertyDetail = () => {
               e.target.src = realisticFallbacks[0];
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 via-transparent to-transparent pointer-events-none" />
 
           {/* Badges */}
           <div className="absolute top-6 left-6 flex items-center gap-3">
-            <span className="bg-slate-900/80 backdrop-blur-md text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider border border-white/10">
+            <span className="bg-primary-900 text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider">
               {typeBien}
             </span>
-            <span className="bg-emerald-500/90 backdrop-blur-md text-white text-xs font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1">
+            <span className="bg-emerald-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1">
               <ShieldCheck className="w-4 h-4" />
               Bail Conforme CI
             </span>
           </div>
 
           {/* Prix */}
-          <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-xl text-slate-900 px-6 py-3 rounded-2xl shadow-xl border border-white/50">
+          <div className="absolute bottom-6 right-6 bg-white text-slate-900 px-6 py-3 rounded-xl shadow-lg">
             <span className="text-2xl font-black">{formatPrice(prix)}</span>
             <span className="text-xs text-slate-500 font-semibold ml-1">/ mois</span>
           </div>
@@ -147,8 +147,8 @@ const PropertyDetail = () => {
               <button
                 key={idx}
                 onClick={() => setActivePhotoIndex(idx)}
-                className={`h-20 w-32 rounded-2xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
-                  activePhotoIndex === idx ? 'border-sky-600 scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
+                className={`h-20 w-32 rounded-xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
+                  activePhotoIndex === idx ? 'border-primary-500 scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
                 }`}
               >
                 <img src={p.url} alt="" className="w-full h-full object-cover" />
@@ -170,24 +170,24 @@ const PropertyDetail = () => {
               {titre}
             </h1>
             <div className="flex items-center gap-2 text-slate-600 text-sm font-medium">
-              <MapPin className="w-4 h-4 text-sky-600 shrink-0" />
+              <MapPin className="w-4 h-4 text-primary-600 shrink-0" />
               <span>{locationText}</span>
             </div>
           </div>
 
           {/* Fiche des Spécifications Clés */}
-          <div className="grid grid-cols-3 gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs text-center">
+          <div className="grid grid-cols-3 gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs text-center">
             <div>
               <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Chambres</div>
               <div className="text-xl font-black text-slate-900 flex items-center justify-center gap-1.5 mt-1">
-                <Bed className="w-5 h-5 text-sky-600" />
+                <Bed className="w-5 h-5 text-primary-600" />
                 {bien?.nombreChambres || nombrePieces || 1}
               </div>
             </div>
             <div>
               <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Surface</div>
               <div className="text-xl font-black text-slate-900 flex items-center justify-center gap-1.5 mt-1">
-                <Maximize className="w-5 h-5 text-sky-600" />
+                <Maximize className="w-5 h-5 text-primary-600" />
                 {surface} m²
               </div>
             </div>
@@ -200,7 +200,7 @@ const PropertyDetail = () => {
           </div>
 
           {/* Description */}
-          <div className="space-y-4 bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xs">
+          <div className="space-y-4 bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs">
             <h3 className="text-xl font-bold text-slate-900">Description détaillée</h3>
             <p className="text-slate-600 text-sm leading-relaxed whitespace-pre-line font-normal">
               {description || 'Superbe bien immobilier situé dans un quartier calme et sécurisé d\'Abidjan, offrant d\'excellentes prestations de standing.'}
@@ -208,11 +208,11 @@ const PropertyDetail = () => {
           </div>
 
           {/* Équipements */}
-          <div className="space-y-4 bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xs">
+          <div className="space-y-4 bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs">
             <h3 className="text-xl font-bold text-slate-900">Équipements & Prestations</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {equipements.map((eq, i) => (
-                <div key={i} className="flex items-center gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 text-xs font-semibold text-slate-800">
+                <div key={i} className="flex items-center gap-3 bg-slate-50 p-3.5 rounded-xl border border-slate-100 text-xs font-semibold text-slate-800">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                   <span>{eq}</span>
                 </div>
@@ -226,9 +226,9 @@ const PropertyDetail = () => {
         <div className="lg:col-span-4 space-y-6 sticky top-28">
           
           {/* Card Propriétaire Certifié */}
-          <div className="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-lg space-y-6">
+          <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-lg space-y-6">
             <div className="flex items-center gap-4 pb-6 border-b border-slate-100">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-600 to-blue-600 text-white font-black text-xl flex items-center justify-center shadow-md shadow-sky-600/20">
+              <div className="w-14 h-14 rounded-2xl bg-primary-500 text-white font-black text-xl flex items-center justify-center shadow-md shadow-primary-500/20">
                 {proprietaire?.prenom?.[0] || 'P'}
               </div>
               <div>
@@ -243,16 +243,16 @@ const PropertyDetail = () => {
             </div>
 
             {proprietaire?.telephone && (
-              <div className="flex items-center gap-3 text-slate-800 text-xs font-bold bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                <Phone className="w-4 h-4 text-sky-600 shrink-0" />
+              <div className="flex items-center gap-3 text-slate-800 text-xs font-bold bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <Phone className="w-4 h-4 text-primary-600 shrink-0" />
                 <span>Contact Direct : {proprietaire.telephone}</span>
               </div>
             )}
 
             {/* Demande de Visite Mobile */}
             <div className="space-y-3 pt-2">
-              <div className="bg-gradient-to-br from-sky-900 to-blue-950 text-white p-6 rounded-2xl space-y-3 text-center border border-sky-800/80">
-                <Smartphone className="w-8 h-8 text-sky-400 mx-auto" />
+              <div className="bg-primary-900 text-white p-6 rounded-2xl space-y-3 text-center">
+                <Smartphone className="w-8 h-8 text-primary-300 mx-auto" />
                 <div className="text-xs font-bold">Visitez ce bien en 1 clic</div>
                 <p className="text-[11px] text-slate-300 leading-relaxed">
                   Téléchargez <strong>AttouHome Locataire</strong> sur votre smartphone pour réserver un créneau de visite direct.
@@ -262,8 +262,8 @@ const PropertyDetail = () => {
           </div>
 
           {/* Badge de Garantie Légale */}
-          <div className="bg-slate-950 text-white p-6 rounded-3xl space-y-3 text-xs leading-relaxed border border-slate-800">
-            <div className="font-bold text-sky-400 flex items-center gap-2">
+          <div className="bg-primary-900 text-white p-6 rounded-2xl space-y-3 text-xs leading-relaxed">
+            <div className="font-bold text-primary-300 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
               Protection Locataire
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MapPin, Bed, Maximize, CheckCircle2, ArrowUpRight, Sparkles } from 'lucide-react';
+import { MapPin, Bed, Maximize, CheckCircle2, ArrowUpRight } from 'lucide-react';
 
 const PropertyCard = ({ property, index = 0, variant = 'standard' }) => {
   if (!property) return null;
@@ -47,7 +47,7 @@ const PropertyCard = ({ property, index = 0, variant = 'standard' }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className={`group bg-white rounded-3xl border border-slate-200/70 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between ${
+      className={`group bg-white rounded-2xl border border-slate-200/70 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between ${
         variant === 'featured' ? 'md:col-span-2 md:flex-row' : ''
       }`}
     >
@@ -64,16 +64,16 @@ const PropertyCard = ({ property, index = 0, variant = 'standard' }) => {
           }}
         />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-80" />
+        {/* Overlay pour lisibilité du prix */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 via-transparent to-transparent opacity-80" />
 
         {/* Badges en haut */}
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-          <span className="bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider border border-white/10">
+          <span className="bg-primary-900 text-white text-[11px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">
             {typeBien}
           </span>
           {statut === 'PUBLIEE' && (
-            <span className="bg-emerald-500/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+            <span className="bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
               <CheckCircle2 className="w-3.5 h-3.5" />
               Vérifié
             </span>
@@ -94,12 +94,12 @@ const PropertyCard = ({ property, index = 0, variant = 'standard' }) => {
         variant === 'featured' ? 'md:w-1/2 p-8' : ''
       }`}>
         <div className="space-y-2">
-          <div className="flex items-center gap-1.5 text-sky-600 text-xs font-semibold">
+          <div className="flex items-center gap-1.5 text-primary-600 text-xs font-semibold">
             <MapPin className="w-3.5 h-3.5 shrink-0" />
             <span className="truncate">{locationText}</span>
           </div>
 
-          <h3 className="text-lg font-bold text-slate-900 line-clamp-2 leading-snug group-hover:text-sky-600 transition-colors">
+          <h3 className="text-lg font-bold text-slate-900 line-clamp-2 leading-snug group-hover:text-primary-600 transition-colors">
             {titre}
           </h3>
         </div>
@@ -119,7 +119,7 @@ const PropertyCard = ({ property, index = 0, variant = 'standard' }) => {
 
           <Link
             to={`/annonces/${id}`}
-            className="w-9 h-9 rounded-full bg-slate-100 group-hover:bg-sky-600 text-slate-700 group-hover:text-white flex items-center justify-center transition-all duration-300"
+            className="w-9 h-9 rounded-full bg-slate-100 group-hover:bg-primary-500 text-slate-700 group-hover:text-white flex items-center justify-center transition-all duration-300"
             aria-label="Voir le bien"
           >
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

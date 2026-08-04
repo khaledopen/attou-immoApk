@@ -36,7 +36,7 @@ const PropertyCard = ({ property }) => {
   };
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-primary-100 transition-all duration-500 group">
+    <div className="bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-primary-100 transition-all duration-500 group">
       <div className="h-56 bg-slate-100 relative overflow-hidden">
         {property.imageUrl ? (
           <img src={property.imageUrl} alt={property.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -45,7 +45,7 @@ const PropertyCard = ({ property }) => {
             <Home size={64} strokeWidth={1} />
           </div>
         )}
-        <div className="absolute top-5 right-5 px-4 py-1.5 bg-white/90 backdrop-blur-md text-primary-700 text-[10px] font-black uppercase tracking-widest rounded-full shadow-sm">
+        <div className="absolute top-5 right-5 px-4 py-1.5 bg-white text-primary-700 text-[10px] font-black uppercase tracking-widest rounded-full shadow-sm">
           {property.status === 'AVAILABLE' ? 'Disponible' : 'Loué'}
         </div>
       </div>
