@@ -294,7 +294,7 @@ const AdminDashboard = () => {
         <div className="lg:col-span-2 bg-white rounded-[2rem] border border-slate-100 p-8 shadow-sm">
           <div className="flex justify-between items-center mb-8">
             <h3 className="text-xl font-bold text-slate-900">Demandes de visite récentes</h3>
-            <button onClick={() => navigate('/visits')} className="text-primary-600 text-sm font-bold hover:underline">Voir tout</button>
+            <button onClick={() => navigate('/admin/visits')} className="text-primary-600 text-sm font-bold hover:underline">Voir tout</button>
           </div>
           <div className="space-y-4">
             {stats.recentVisits.length === 0 ? (
@@ -315,7 +315,7 @@ const AdminDashboard = () => {
                     <span className="px-4 py-1.5 rounded-full bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-wider">
                       {visit.statut}
                     </span>
-                    <button onClick={() => navigate('/visits')} className="p-2.5 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all">
+                    <button onClick={() => navigate('/admin/visits')} className="p-2.5 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all">
                       Détails
                     </button>
                   </div>
