@@ -82,6 +82,22 @@ app.use('/api/messages', require('./routes/messageRoutes'));
 
 const PORT = process.env.PORT || 5000;
 
+// ─── Servir l'admin-web (React SPA) depuis le dossier dist ───
+// Le backend sert les fichiers buildés de l'interface admin
+const adminWebDistPath = path.join(__dirname, '..', 'admin-web', 'dist');
+if (fs.existsSync(adminWebDistPath)) {
+  // Servir les assets statiques (JS, CSS, images)
+  app.use(express.static(adminWebDistPath));
+
+  // Catch-all : toutes les routes non-API → index.html (React Router SPA)
+  app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.join(adminWebDistPath, 'index.html'));
+  });
+  console.log('[Server] ✅ Admin Web servi depuis:', adminWebDistPath);
+} else {
+  console.log('[Server] ⚠️ Dossier admin-web/dist introuvable. L\'interface admin ne sera pas disponible.');
+}
+
 // Importer le contrôleur de visites pour la logique d'expiration automatique sous 72h
 const { expireVisits } = require('./controllers/visitController');
 
