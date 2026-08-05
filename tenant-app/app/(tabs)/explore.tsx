@@ -146,13 +146,22 @@ export default function ExploreMapScreen() {
           location.coords.longitude >= -4.3 && 
           location.coords.longitude <= -3.5;
 
-        if (Platform.OS !== 'web' && mapRef.current) {
-          mapRef.current.animateToRegion({
-            latitude: location.coords.latitude,
-            longitude: location.coords.longitude,
-            latitudeDelta: 0.03,
-            longitudeDelta: 0.03,
-          }, 1000);
+        if (Platform.OS !== 'web') {
+          // Attendre que la carte soit prête pour animer
+          const timer = setTimeout(() => {
+            if (mapRef.current && typeof mapRef.current.animateToRegion === 'function') {
+              try {
+                mapRef.current.animateToRegion({
+                  latitude: location.coords.latitude,
+                  longitude: location.coords.longitude,
+                  latitudeDelta: 0.03,
+                  longitudeDelta: 0.03,
+                }, 1000);
+              } catch (err) {
+                console.warn('Erreur animation vers position utilisateur:', err);
+              }
+            }
+          }, 600);
         } else {
           if (isNearAbidjan) {
             setWebCenterLat(location.coords.latitude);
@@ -264,19 +273,31 @@ export default function ExploreMapScreen() {
     }
   }, [selectedProperty, userLocation]);
 
+  const [mapReady, setMapReady] = useState(false);
+
   // Zoomer et sélectionner automatiquement le bien s'il y a un paramètre 'focus' dans l'URL
   useEffect(() => {
     if (focus && properties.length > 0) {
       const propToFocus = properties.find((p) => String(p.id) === String(focus));
       if (propToFocus) {
         setSelectedProperty(propToFocus);
-        if (Platform.OS !== 'web' && mapRef.current) {
-          mapRef.current.animateToRegion({
-            latitude: propToFocus.latitude,
-            longitude: propToFocus.longitude,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.015,
-          }, 1000);
+        if (Platform.OS !== 'web') {
+          // Utiliser un setTimeout pour laisser le temps au composant MapView natif d'être prêt et monté
+          const timer = setTimeout(() => {
+            if (mapRef.current && typeof mapRef.current.animateToRegion === 'function') {
+              try {
+                mapRef.current.animateToRegion({
+                  latitude: propToFocus.latitude,
+                  longitude: propToFocus.longitude,
+                  latitudeDelta: 0.015,
+                  longitudeDelta: 0.015,
+                }, 1000);
+              } catch (err) {
+                console.warn('Erreur animation vers le bien:', err);
+              }
+            }
+          }, 600);
+          return () => clearTimeout(timer);
         } else {
           setWebCenterLat(propToFocus.latitude);
           setWebCenterLng(propToFocus.longitude);
