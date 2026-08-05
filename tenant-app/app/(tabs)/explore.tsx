@@ -340,21 +340,32 @@ export default function ExploreMapScreen() {
     return `${price}`;
   };
 
-  // Recentre la carte sur Abidjan
+  // Recentre la carte sur la position GPS de l'utilisateur ou sur Abidjan par défaut
   const handleRecenter = () => {
+    // Récupérer les coordonnées cibles (position GPS utilisateur en priorité, sinon Abidjan)
+    const targetLat = userLocation?.coords?.latitude || ABIDJAN_LAT;
+    const targetLng = userLocation?.coords?.longitude || ABIDJAN_LNG;
+
     if (Platform.OS !== 'web' && mapRef.current) {
-      mapRef.current.animateToRegion({
-        latitude: ABIDJAN_LAT,
-        longitude: ABIDJAN_LNG,
-        latitudeDelta: 0.05,
-        longitudeDelta: 0.05,
-      }, 1000);
+      if (typeof mapRef.current.animateToRegion === 'function') {
+        try {
+          mapRef.current.animateToRegion({
+            latitude: targetLat,
+            longitude: targetLng,
+            latitudeDelta: 0.03,
+            longitudeDelta: 0.03,
+          }, 1000);
+        } catch (err) {
+          console.warn('Erreur lors du recentrage natif:', err);
+        }
+      }
     } else {
-      setWebCenterLat(ABIDJAN_LAT);
-      setWebCenterLng(ABIDJAN_LNG);
-      setWebZoom(45000);
+      setWebCenterLat(targetLat);
+      setWebCenterLng(targetLng);
+      setWebZoom(userLocation ? 65000 : 45000);
     }
   };
+
 
   // Dessine un quartier d'Abidjan dynamique qui se déplace et zoome sur Web
   const renderWebZone = (name: string, lat: number, lng: number, bgColor: string, width: number, height: number) => {
