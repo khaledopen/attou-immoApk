@@ -46,7 +46,14 @@
         }
       ],
       "@react-native-community/datetimepicker",
-      "expo-font"
+      "expo-font",
+      [
+        "expo-location",
+        {
+          "locationAlwaysPermission": "Permettre à AttouHome d'accéder à votre position pour vous guider vers les logements.",
+          "locationWhenInUsePermission": "Permettre à AttouHome d'accéder à votre position lors de la recherche de logements."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
