@@ -59,9 +59,7 @@ const Login = ({ onLoginSuccess }) => {
 
           {/* Logo & En-tête */}
           <div className="flex flex-col items-center mb-8">
-            <div className="w-14 h-14 bg-primary-500 rounded-2xl flex items-center justify-center shadow-lg shadow-primary-500/25 mb-4">
-              <Building2 className="text-white" size={28} />
-            </div>
+            <img src="/favicon.png" className="w-14 h-14 rounded-2xl shadow-lg shadow-primary-500/25 mb-4 object-cover" alt="Logo" />
             <h1 className="text-3xl font-black tracking-tight text-white mb-1">
               Attou<span className="text-primary-400">Home</span>
             </h1>

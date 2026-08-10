@@ -42,9 +42,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white shadow-md shadow-primary-500/20 group-hover:scale-105 transition-all">
-              <Building2 className="w-5.5 h-5.5" />
-            </div>
+            <img src="/favicon.png" className="w-10 h-10 rounded-xl shadow-md shadow-primary-500/20 group-hover:scale-105 transition-all object-cover" alt="Logo" />
             <div>
               <span className={`text-xl font-black tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
                 Attou<span className="text-primary-500">Home</span>
