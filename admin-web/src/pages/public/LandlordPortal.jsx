@@ -186,7 +186,7 @@ const LandlordPortal = () => {
       </section>
 
       {/* SECTION TELECHARGEMENT */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 bg-primary-950 text-white rounded-3xl relative overflow-hidden shadow-xl">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 bg-primary-900 text-white rounded-3xl relative overflow-hidden shadow-xl">
         <div className="relative z-10 max-w-2xl mx-auto space-y-6">
           <span className="text-xs font-bold text-primary-300 uppercase tracking-widest">Application Mobile</span>
           <h2 className="text-3xl font-black tracking-tight">Téléchargez l'application AttouHome Pro</h2>
