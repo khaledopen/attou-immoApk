@@ -94,7 +94,7 @@ const Footer = () => {
               <div>
                 <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
                   <Smartphone className="w-4 h-4 text-primary-400" />
-                  AttouHome Locataire
+                  AttouHome
                 </div>
                 <div className="flex gap-2">
                   <a href="#" className="flex items-center gap-1.5 bg-black text-white px-2 py-1 rounded-md border border-slate-700 hover:bg-slate-800 transition-colors w-1/2 justify-center">
@@ -120,8 +120,8 @@ const Footer = () => {
 
               <div>
                 <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
-                  <Smartphone className="w-4 h-4 text-emerald-400" />
-                  AttouHome Propriétaire
+                  <Smartphone className="w-4 h-4 text-primary-400" />
+                  AttouHome Pro
                 </div>
                 <div className="flex gap-2">
                   <a href="#" className="flex items-center gap-1.5 bg-black text-white px-2 py-1 rounded-md border border-slate-700 hover:bg-slate-800 transition-colors w-1/2 justify-center">

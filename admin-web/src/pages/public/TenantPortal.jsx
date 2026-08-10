@@ -109,12 +109,12 @@ const TenantPortal = () => {
             </div>
             <h3 className="text-lg font-bold text-slate-900">Demandez une visite</h3>
             <p className="text-slate-600 text-xs leading-relaxed">
-              Sélectionnez un créneau horaire sur l'application **AttouHome Locataire**.
+              Sélectionnez un créneau horaire sur l'application AttouHome.
             </p>
           </div>
 
           <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs text-center space-y-4">
-            <div className="w-12 h-12 bg-emerald-600 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">
+            <div className="w-12 h-12 bg-primary-600 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">
               3
             </div>
             <h3 className="text-lg font-bold text-slate-900">Emménagez en confiance</h3>
@@ -129,7 +129,7 @@ const TenantPortal = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 bg-primary-900 text-white rounded-3xl relative overflow-hidden shadow-xl">
         <div className="relative z-10 max-w-2xl mx-auto space-y-6">
           <span className="text-xs font-bold text-primary-300 uppercase tracking-widest">Application Mobile</span>
-          <h2 className="text-3xl font-black tracking-tight">Téléchargez l'application AttouHome Locataire</h2>
+          <h2 className="text-3xl font-black tracking-tight">Téléchargez l'application AttouHome</h2>
           <p className="text-slate-300 text-sm leading-relaxed">
             Trouvez votre futur chez-vous plus rapidement, planifiez vos visites directement sur le calendrier du propriétaire et restez informé en temps réel.
           </p>

@@ -255,7 +255,7 @@ const PropertyDetail = () => {
                 <Smartphone className="w-8 h-8 text-primary-300 mx-auto" />
                 <div className="text-xs font-bold">Visitez ce bien en 1 clic</div>
                 <p className="text-[11px] text-slate-300 leading-relaxed">
-                  Téléchargez <strong>AttouHome Locataire</strong> sur votre smartphone pour réserver un créneau de visite direct.
+                  Téléchargez <strong>AttouHome</strong> sur votre smartphone pour réserver un créneau de visite direct.
                 </p>
               </div>
             </div>

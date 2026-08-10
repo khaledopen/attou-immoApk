@@ -341,7 +341,7 @@ const Home = () => {
           {/* Espace Propriétaire */}
           <div className="bg-primary-800 text-white p-8 sm:p-12 rounded-2xl shadow-lg flex flex-col justify-between space-y-8">
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold border border-emerald-500/30">
+              <div className="w-12 h-12 rounded-2xl bg-primary-500/20 text-primary-300 flex items-center justify-center font-bold border border-primary-500/30">
                 <KeyRound className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-black">Vous êtes propriétaire ?</h3>
@@ -350,11 +350,11 @@ const Home = () => {
               </p>
               <ul className="space-y-2 text-xs text-slate-200 pt-2">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-primary-300 shrink-0" />
                   Publication simple avec photos HD
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-primary-300 shrink-0" />
                   Sélection et validation des candidats
                 </li>
               </ul>
@@ -362,7 +362,7 @@ const Home = () => {
 
             <Link
               to="/proprietaire"
-              className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl text-xs uppercase tracking-wider transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3.5 px-6 rounded-xl text-xs uppercase tracking-wider transition-colors"
             >
               Découvrir l'Espace Propriétaire
               <ArrowRight className="w-4 h-4" />

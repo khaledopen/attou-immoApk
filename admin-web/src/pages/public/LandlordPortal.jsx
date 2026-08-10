@@ -34,13 +34,13 @@ const LandlordPortal = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs font-bold uppercase tracking-wider">
               <KeyRound className="w-4 h-4" />
               Espace Propriétaire & Bailleur
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
-              Louez vos biens immobiliers à Abidjan avec une <span className="text-emerald-400">sérénité totale</span>.
+              Louez vos biens immobiliers à Abidjan avec une <span className="text-primary-400">sérénité totale</span>.
             </h1>
 
             <p className="text-slate-300 text-base leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
@@ -50,7 +50,7 @@ const LandlordPortal = () => {
             <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
                 to="/annonces"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-full shadow-lg shadow-emerald-600/30 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-3.5 rounded-full shadow-lg shadow-primary-600/30 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2"
               >
                 Explorer la plateforme
                 <ArrowRight className="w-4 h-4" />
@@ -66,13 +66,13 @@ const LandlordPortal = () => {
           >
             <div className="bg-primary-900 p-8 rounded-2xl shadow-lg space-y-6">
               <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-emerald-400" />
+                <TrendingUp className="w-5 h-5 text-primary-400" />
                 Garanties de la plateforme
               </h3>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-4 bg-black/20 p-4 rounded-xl">
-                  <ShieldCheck className="w-6 h-6 text-emerald-400 shrink-0 mt-1" />
+                  <ShieldCheck className="w-6 h-6 text-primary-400 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-white text-sm">Locataires Certifiés ONECI</h4>
                     <p className="text-xs text-slate-400 mt-1">Dossiers de candidature vérifiés avant toute demande de visite.</p>
@@ -80,7 +80,7 @@ const LandlordPortal = () => {
                 </div>
 
                 <div className="flex items-start gap-4 bg-black/20 p-4 rounded-xl">
-                  <Building2 className="w-6 h-6 text-emerald-400 shrink-0 mt-1" />
+                  <Building2 className="w-6 h-6 text-primary-400 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-white text-sm">Gestion des Créneaux de Visite</h4>
                     <p className="text-xs text-slate-400 mt-1">Confirmez ou déplacez les rendez-vous de visite en 1 clic depuis votre mobile.</p>
@@ -88,7 +88,7 @@ const LandlordPortal = () => {
                 </div>
 
                 <div className="flex items-start gap-4 bg-black/20 p-4 rounded-xl">
-                  <Users className="w-6 h-6 text-emerald-400 shrink-0 mt-1" />
+                  <Users className="w-6 h-6 text-primary-400 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-white text-sm">Visibilité ciblée à Cocody & Marcory</h4>
                     <p className="text-xs text-slate-400 mt-1">Vos appartements présentés à des milliers de chercheurs de logement actifs.</p>
@@ -104,7 +104,7 @@ const LandlordPortal = () => {
       {/* PROCESSUS ETAPES */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Fonctionnement</span>
+          <span className="text-xs font-bold text-primary-600 uppercase tracking-widest">Fonctionnement</span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">
             Comment publier votre annonce ?
           </h2>
@@ -112,17 +112,17 @@ const LandlordPortal = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs text-center space-y-4">
-            <div className="w-12 h-12 bg-emerald-600 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">
+            <div className="w-12 h-12 bg-primary-600 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">
               1
             </div>
             <h3 className="text-lg font-bold text-slate-900">Créez votre compte bailleur</h3>
             <p className="text-slate-600 text-xs leading-relaxed">
-              Téléchargez l'application mobile **AttouHome Propriétaire** et renseignez votre profil.
+              Téléchargez l'application mobile **AttouHome Pro** et renseignez votre profil.
             </p>
           </div>
 
           <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs text-center space-y-4">
-            <div className="w-12 h-12 bg-emerald-600 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">
+            <div className="w-12 h-12 bg-primary-600 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">
               2
             </div>
             <h3 className="text-lg font-bold text-slate-900">Ajoutez les détails du bien</h3>
@@ -132,7 +132,7 @@ const LandlordPortal = () => {
           </div>
 
           <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs text-center space-y-4">
-            <div className="w-12 h-12 bg-emerald-600 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">
+            <div className="w-12 h-12 bg-primary-600 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">
               3
             </div>
             <h3 className="text-lg font-bold text-slate-900">Validez les visites & concluez</h3>
@@ -146,7 +146,7 @@ const LandlordPortal = () => {
       {/* FAQ SECTION INTERACTIVE */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-2">
-          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Questions Fréquentes</span>
+          <span className="text-xs font-bold text-primary-600 uppercase tracking-widest">Questions Fréquentes</span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">
             Vos questions, nos réponses
           </h2>
@@ -164,7 +164,7 @@ const LandlordPortal = () => {
               >
                 <span>{faq.question}</span>
                 <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform ${
-                  activeFaq === index ? 'rotate-180 text-emerald-600' : ''
+                  activeFaq === index ? 'rotate-180 text-primary-600' : ''
                 }`} />
               </button>
 
@@ -186,10 +186,10 @@ const LandlordPortal = () => {
       </section>
 
       {/* SECTION TELECHARGEMENT */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 bg-emerald-950 text-white rounded-3xl relative overflow-hidden shadow-xl">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 bg-primary-950 text-white rounded-3xl relative overflow-hidden shadow-xl">
         <div className="relative z-10 max-w-2xl mx-auto space-y-6">
-          <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Application Mobile</span>
-          <h2 className="text-3xl font-black tracking-tight">Téléchargez l'application AttouHome Propriétaire</h2>
+          <span className="text-xs font-bold text-primary-300 uppercase tracking-widest">Application Mobile</span>
+          <h2 className="text-3xl font-black tracking-tight">Téléchargez l'application AttouHome Pro</h2>
           <p className="text-slate-300 text-sm leading-relaxed">
             Publiez vos annonces en quelques minutes, gérez les rendez-vous de visite de vos candidats et recevez des dossiers certifiés directement sur votre mobile.
           </p>
