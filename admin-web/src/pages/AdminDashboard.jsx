@@ -269,14 +269,14 @@ const AdminDashboard = () => {
             data={stats.dailyStats}
             metric="users"
             label="Nouveaux Inscrits"
-            colorHex="#156EE4"
+            colorHex="#0ea5e9"
             gradientId="usersGrad"
           />
           <PerformanceChart
             data={stats.dailyStats}
             metric="properties"
             label="Annonces Actives"
-            colorHex="#0A1C3F"
+            colorHex="#075985"
             gradientId="propsGrad"
           />
           <PerformanceChart

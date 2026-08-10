@@ -95,7 +95,7 @@ const UsersPage = () => {
           <title>AttouHome - Liste des utilisateurs</title>
           <style>
             body { font-family: Arial, sans-serif; padding: 20px; color: #333; }
-            h2 { color: #156EE4; margin-bottom: 5px; }
+            h2 { color: #0ea5e9; margin-bottom: 5px; }
             p { margin-top: 0; color: #666; font-size: 14px; }
             table { width: 100%; border-collapse: collapse; margin-top: 20px; }
             th { background-color: #f8fafc; text-align: left; padding: 10px; font-weight: bold; border-bottom: 2px solid #ddd; }
