@@ -92,17 +92,7 @@ const Navbar = () => {
 
           {/* Actions Right */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              to="/login"
-              className={`flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-xl transition-all ${
-                isScrolled
-                  ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                  : 'text-slate-200 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              <ShieldCheck className="w-4 h-4 text-primary-500" />
-              Espace Admin
-            </Link>
+
 
             <Link
               to="/annonces"
@@ -162,14 +152,7 @@ const Navbar = () => {
                 <Search className="w-4 h-4" />
                 Trouver un bien
               </Link>
-              <Link
-                to="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 w-full bg-slate-100 text-slate-700 font-semibold py-2.5 rounded-xl hover:bg-slate-200 transition-colors text-xs"
-              >
-                <ShieldCheck className="w-4 h-4 text-primary-600" />
-                Accès Administrateur
-              </Link>
+
             </div>
           </motion.div>
         )}

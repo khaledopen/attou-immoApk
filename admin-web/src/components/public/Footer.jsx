@@ -53,7 +53,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/login" className="hover:text-white text-slate-400 text-xs transition-colors flex items-center gap-1 mt-2">
-                  → Accès Administration
+                  → Administration
                 </Link>
               </li>
             </ul>
