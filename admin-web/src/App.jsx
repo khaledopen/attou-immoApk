@@ -6,6 +6,7 @@ import { Menu } from 'lucide-react';
 // Layouts & Guards
 import PublicLayout from './layouts/PublicLayout';
 import ProtectedRoute from './components/ProtectedRoute';
+import ScrollToTop from './components/ScrollToTop';
 
 // Public Pages
 import Home from './pages/public/Home';
@@ -119,6 +120,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         
         {/* ─── 1. ROUTES PUBLIQUES (Locataires & Propriétaires) ─── */}
