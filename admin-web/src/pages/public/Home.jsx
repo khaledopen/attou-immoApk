@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import PropertyCard from '../../components/public/PropertyCard';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://projet-attou-immo.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000' : 'https://projet-attou-immo.onrender.com');
 
 const Home = () => {
   const navigate = useNavigate();

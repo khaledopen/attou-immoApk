@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Stack, useRouter } from 'expo-router';
-import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
+
 import { Alert, View } from 'react-native';
 import io from 'socket.io-client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -119,23 +119,21 @@ export default function RootLayout() {
   }, [router]);
 
   return (
-    <ThemeProvider value={DefaultTheme}>
-      <View 
-        style={{ flex: 1 }} 
-        onStartShouldSetResponderCapture={() => {
-          updateActivity();
-          return false;
-        }}
-      >
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="index" />
-          <Stack.Screen name="login" />
-          <Stack.Screen name="forgot-password" />
-          <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="add-property" options={{ presentation: 'modal' }} />
-          <Stack.Screen name="edit-property" options={{ presentation: 'modal' }} />
-        </Stack>
-      </View>
-    </ThemeProvider>
+    <View 
+      style={{ flex: 1 }} 
+      onStartShouldSetResponderCapture={() => {
+        updateActivity();
+        return false;
+      }}
+    >
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="login" />
+        <Stack.Screen name="forgot-password" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="add-property" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="edit-property" options={{ presentation: 'modal' }} />
+      </Stack>
+    </View>
   );
 }

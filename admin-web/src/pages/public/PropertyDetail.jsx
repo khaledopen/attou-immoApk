@@ -7,7 +7,7 @@ import {
   ShieldCheck, ArrowLeft, Smartphone, Building2
 } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://projet-attou-immo.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000' : 'https://projet-attou-immo.onrender.com');
 
 const PropertyDetail = () => {
   const { id } = useParams();

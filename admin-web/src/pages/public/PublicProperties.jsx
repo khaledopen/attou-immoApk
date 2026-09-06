@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Search, Filter, Building2, SlidersHorizontal, RefreshCw, ArrowUpDown } from 'lucide-react';
 import PropertyCard from '../../components/public/PropertyCard';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://projet-attou-immo.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000' : 'https://projet-attou-immo.onrender.com');
 
 const PublicProperties = () => {
   const [searchParams, setSearchParams] = useSearchParams();

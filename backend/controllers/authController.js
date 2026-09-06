@@ -280,13 +280,16 @@ exports.forgotPassword = async (req, res) => {
     // Construire l'URL de réinitialisation
     // On utilise FRONTEND_URL si défini (ex: https://projet-attou-immo.onrender.com)
     // sinon on reconstruit depuis les headers HTTP (utile en dev local)
-    const baseUrl = process.env.FRONTEND_URL
+    const baseUrl = (process.env.NODE_ENV === 'production' && process.env.FRONTEND_URL)
       ? process.env.FRONTEND_URL
       : `${req.headers['x-forwarded-proto'] || req.protocol || 'http'}://${req.headers.host}`;
     const resetUrl = `${baseUrl}/api/auth/reset-password?token=${token}&userId=${user.id}`;
 
 
-    await sendResetEmail(user.email, resetUrl);
+    // Envoi asynchrone pour ne pas bloquer la réponse HTTP de l'utilisateur en cas de lenteur réseau
+    sendResetEmail(user.email, resetUrl).catch(err => {
+      console.error("[Mailer Async Error]", err);
+    });
 
     res.json({ message: 'Si votre e-mail correspond à un compte, un lien de réinitialisation vous a été envoyé.' });
   } catch (error) {

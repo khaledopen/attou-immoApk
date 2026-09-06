@@ -1,8 +1,25 @@
 const { spawn } = require('child_process');
 const path = require('path');
 const os = require('os');
+const fs = require('fs');
 
 console.log('[App Startup] Démarrage automatique du tunnel de l\'API backend...');
+
+// Garantir la présence des assets internes requis par react-native LogBox
+try {
+  const logBoxDir = path.join(__dirname, '../node_modules/react-native/Libraries/LogBox/UI/LogBoxImages');
+  if (!fs.existsSync(logBoxDir)) {
+    fs.mkdirSync(logBoxDir, { recursive: true });
+  }
+  const base64Png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+  const buffer = Buffer.from(base64Png, 'base64');
+  ['chevron-left.png', 'chevron-right.png', 'alert-triangle.png', 'loader.png', 'close.png'].forEach(img => {
+    const filePath = path.join(logBoxDir, img);
+    if (!fs.existsSync(filePath)) {
+      fs.writeFileSync(filePath, buffer);
+    }
+  });
+} catch (e) {}
 
 // Détection de l'IP du Point d'accès mobile de Windows (généralement 192.168.137.1)
 let packagerHostname = undefined;

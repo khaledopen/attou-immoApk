@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, RefreshControl } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useRouter } from 'expo-router';
-import { useIsFocused } from '@react-navigation/native';
+import { useRouter, useFocusEffect } from 'expo-router';
 import PropertyCard from '../../components/PropertyCard';
 import api from '../../api/axiosInstance';
 import { BASE_URL } from '../../api/config';
@@ -12,7 +11,11 @@ const FavoritesScreen = () => {
   const [favorites, setFavorites] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const router = useRouter();
-  const isFocused = useIsFocused();
+  useFocusEffect(
+    React.useCallback(() => {
+      loadFavorites();
+    }, [])
+  );
 
   const loadFavorites = async () => {
     try {
@@ -42,11 +45,7 @@ const FavoritesScreen = () => {
     }
   };
 
-  useEffect(() => {
-    if (isFocused) {
-      loadFavorites();
-    }
-  }, [isFocused]);
+
 
   const onRefresh = () => {
     setRefreshing(true);
